@@ -1,6 +1,6 @@
 {
   "name": "mocha-react-feature",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Opinionated feature testing for React applications",
   "main": "dist/index.js",
   "scripts": {
@@ -18,7 +18,7 @@
   ],
   "author": "Richard Foster <richard@madetech.com> (http://www.madetech.com)",
   "repository": {
-    "type" : "git",
+    "type": "git",
     "url": "https://github.com/madetech/mocha-react-feature"
   },
   "license": "MIT",
