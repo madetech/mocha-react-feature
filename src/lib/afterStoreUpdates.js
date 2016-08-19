@@ -10,7 +10,6 @@ export default function afterStoreUpdates (store, predicate) {
         unsubscribe()
         accept(state)
       } catch (err) {
-        console.log(`Caught ${err}`)
         global[error] = err
       }
     })
