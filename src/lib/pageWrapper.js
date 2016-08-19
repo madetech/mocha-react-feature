@@ -1,11 +1,34 @@
 import { push } from 'react-router-redux'
 
-export default function pageWrapper (wrapper, store) {
-  const page = {}
+const simulator = (wrapper, eventName) =>
+  (selector, options = {}) =>
+    wrapper.find(selector).simulate(eventName, options)
 
-  page.body = wrapper
-  page.visit = (...args) => store.dispatch(push(...args))
-  page.click = (selector) => page.body.find(selector).simulate('click')
+export default function pageWrapper (wrapper, store) {
+  const page = {
+    body: wrapper
+  }
+
+  page.visit = (...args) =>
+    store.dispatch(push(...args))
+
+  page.click = simulator(page.body, 'click')
+  page.dblclick = simulator(page.body, 'dblclick')
+
+  page.change = (selector, value) => {
+    const input = page.body.find(selector)
+    input.get(0).value = value
+    input.first().simulate('change', { target: { value } })
+  }
+
+  page.pressEnter = selector =>
+    page.body.find(selector).simulate('keydown', { keyCode: 13 })
+
+  page.toggle = selector => {
+    const element = page.body.find(selector)
+    const checked = element.is('[checked]')
+    element.simulate('change', { target: { checked: !checked } })
+  }
 
   return page
 }
