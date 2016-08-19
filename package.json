@@ -6,7 +6,8 @@
   "scripts": {
     "test": "mocha --require jsdom-global/register --reporter dist/reporter.js --compilers js:babel-register test/*.test.js",
     "build": "babel src/ -d dist/",
-    "lint": "eslint -c .eslintrc src/"
+    "lint": "eslint -c .eslintrc src/",
+    "prepublish": "npm run build"
   },
   "keywords": [
     "mocha",
