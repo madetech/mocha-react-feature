@@ -11,6 +11,7 @@ function Reporter (runner) {
     this.stats.failures++
     test.err = global[error] || err
     this.failures.push(test)
+    global[error] = null
   })
 }
 
