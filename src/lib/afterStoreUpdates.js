@@ -1,4 +1,4 @@
-export const error = Symbol('Mocha React Feature Spec Error')
+export const error = 'Mocha React Feature Spec Error'
 
 export default function afterStoreUpdates (store, predicate) {
   return new Promise(function (accept) {
