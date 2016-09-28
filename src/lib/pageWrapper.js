@@ -16,7 +16,9 @@ export default function pageWrapper (wrapper, store) {
   page.dblclick = simulator(page.body, 'dblclick')
 
   page.change = (selector, value) => {
+    console.log('TRYING TO FIND SELECTOR')
     const input = page.body.find(selector)
+    console.log('FOUND SELECTOR', input)
     input.get(0).value = value
     input.first().simulate('change', { target: { value } })
   }
